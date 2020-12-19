@@ -29,5 +29,5 @@ CMakeCache.txt
 libfs/build/*
 libfs/bin/*
 libfs/lib/dpdk-16.07/*
-libfs/lib/nvml/*
+# libfs/lib/nvml/*
 #libfs/lib/spdk/*

@@ -4,12 +4,17 @@ DPDK_VER := 16.11
 all:	download
 	#if [ ! -d "dpdk-$(DPDK_VER)" ]; then tar xf dpdk-$(DPDK_VER).tar.xz; fi
 	#sudo make install -C dpdk-$(DPDK_VER) T=x86_64-native-linuxapp-gcc DESTDIR=dpdk-$(DPDK_VER)/ -j8
-	sudo apt install -y libndctl-dev libdaxctl-dev
+	# sudo apt install -y libndctl-dev libdaxctl-dev
+	sudo yum install -y ndctl-devel daxctl-devel
+	sudo yum install -y libpmem-devel
+	sudo yum install numactl-devel
+	sudo yum install -y libnl3-devel
+	sudo yum install -y pkgconfig capstone-devel
 	make -C nvml -j8
-	sudo apt install -y build-essential cmake gcc libudev-dev libnl-3-dev libnl-route-3-dev ninja-build pkg-config valgrind
+	# sudo apt install -y build-essential cmake gcc libudev-dev libnl-3-dev libnl-route-3-dev ninja-build pkg-config valgrind
 	(cd rdma-core && ./build.sh)
 	(cd rdma && make)
-	sudo apt install -y pkg-config libcapstone-dev
+	# sudo apt install -y pkg-config libcapstone-dev
 	(cd syscall_intercept; \
 	 mkdir build; \
 	 mkdir install; \
@@ -37,7 +42,7 @@ download:
 	########
 	if [ ! -d "nvml" ] || [ ! -z $(REPO_PURGE) ]; then\
 		rm -rf nvml;\
-		git clone https://github.com/pmem/nvml;\
+		git clone https://gitee.com/chfeng-cs/nvml.git;\
 		(cd nvml && git checkout tags/1.7);\
 	fi
 	########

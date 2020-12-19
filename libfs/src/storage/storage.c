@@ -5,7 +5,7 @@ struct block_device *g_bdev[g_n_devices + 1];
 // storage device paths
 char *g_dev_path[] = {
 	(char *)"unused",
-	(char *)"/dev/dax0.0",		// dev-dax
+	(char *)"/dev/pmem12",		// dev-dax
 	(char *)"/backup/mlfs_ssd",	// SSD
 	(char *)"/backup/mlfs_hdd",	// HDD
 	(char *)"/dev/dax1.0",		// dev-dax [optional]
