@@ -7,7 +7,7 @@ all:	download
 	# sudo apt install -y libndctl-dev libdaxctl-dev
 	sudo yum install -y ndctl-devel daxctl-devel
 	sudo yum install -y libpmem-devel
-	sudo yum install numactl-devel
+	sudo yum install -y numactl-devel
 	sudo yum install -y libnl3-devel
 	sudo yum install -y pkgconfig capstone-devel
 	make -C nvml -j8
